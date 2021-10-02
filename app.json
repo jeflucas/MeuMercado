@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "meumercado",
+    "slug": "meumercado",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "meumercado"
+}
