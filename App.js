@@ -1,10 +1,9 @@
 import React from "react";
 
-import Main from "./src/pages/main";
-import Products from "./src/pages/Products";
+import Routes from "./src/routes";
 
 const App = () => {
-  return <Products />;
+  return <Routes />;
 };
 
 export default App;

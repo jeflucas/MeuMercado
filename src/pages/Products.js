@@ -9,7 +9,7 @@ import {
 
 import Icon from "react-native-vector-icons/FontAwesome";
 
-const Products = () => {
+const Products = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Construa sua lista de compras</Text>
@@ -20,20 +20,25 @@ const Products = () => {
         multiline={true}
         numberOfLines={4}
       />
-      <TouchableOpacity>
-        <Icon
-          style={styles.cameraButton}
-          name="camera"
-          size={32}
-          color="#000"
-        />
-      </TouchableOpacity>
-      <TouchableOpacity>
-        <Text>Cadastrar </Text>
-      </TouchableOpacity>
-      <TouchableOpacity>
-        <Text>Cancelar </Text>
-      </TouchableOpacity>
+      <View style={styles.groupButton}>
+        <TouchableOpacity>
+          <Icon
+            style={styles.cameraButton}
+            name="camera"
+            size={28}
+            color="#fff"
+          />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.saveButton}>
+          <Text style={styles.saveButtonText}>Cadastrar </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={styles.cancelButton}
+        >
+          <Text style={styles.cancelButtonText}>Cancelar </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -42,6 +47,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
+    justifyContent: "center",
   },
   title: {
     textAlign: "center",
@@ -54,6 +60,49 @@ const styles = StyleSheet.create({
     borderBottomColor: "#464660",
     borderBottomWidth: 1,
     marginBottom: 10,
+  },
+  groupButton: {
+    alignItems: "center",
+  },
+  cameraButton: {
+    backgroundColor: "#1C7947",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 50,
+    padding: 10,
+    width: 50,
+    height: 50,
+    margin: 20,
+  },
+  saveButton: {
+    backgroundColor: "#1C7947",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 5,
+    padding: 15,
+    marginBottom: 20,
+    width: 200,
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  saveButtonText: {
+    color: "#fff",
+  },
+  cancelButton: {
+    borderColor: "#1C7947",
+    borderStyle: "solid",
+    borderWidth: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 5,
+    padding: 15,
+    marginBottom: 10,
+    width: 200,
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  cancelButtonText: {
+    color: "#1C7947",
   },
 });
 

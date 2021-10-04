@@ -9,7 +9,7 @@ import {
 
 import Icon from "react-native-vector-icons/FontAwesome";
 
-const Main = () => {
+const Main = ({ navigation }) => {
   const data = [
     {
       id: "1",
@@ -46,6 +46,7 @@ const Main = () => {
         <Text style={styles.title}>Meu Mercado</Text>
         <TouchableOpacity>
           <Icon
+            onPress={() => navigation.navigate("Products")}
             style={styles.toolBoxButton}
             name="cart-plus"
             size={32}
