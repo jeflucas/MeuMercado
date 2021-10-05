@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -10,15 +10,34 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const Products = ({ navigation }) => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [photo, setPhoto] = useState();
+
+  const onSave = () => {
+    console.log(`Title: ${title} Description ${description}`);
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Construa sua lista de compras</Text>
-      <TextInput style={styles.input} placeholder="Item" />
+      <TextInput
+        style={styles.input}
+        placeholder="Item"
+        value={title}
+        onChangeText={(text) => {
+          setTitle(text);
+        }}
+      />
       <TextInput
         style={styles.input}
         placeholder="Descrição"
         multiline={true}
         numberOfLines={4}
+        value={description}
+        onChangeText={(text) => {
+          setDescription(text);
+        }}
       />
       <View style={styles.groupButton}>
         <TouchableOpacity>
@@ -30,7 +49,9 @@ const Products = ({ navigation }) => {
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.saveButton}>
-          <Text style={styles.saveButtonText}>Cadastrar </Text>
+          <Text style={styles.saveButtonText} onPress={onSave}>
+            Cadastrar{" "}
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigation.goBack()}

@@ -18,6 +18,7 @@ const Main = ({ navigation }) => {
       brand: "Tio Urbano",
       lastPrice: 11.0,
       buy: false,
+      description: null,
       photo: null,
     },
     {
@@ -27,6 +28,7 @@ const Main = ({ navigation }) => {
       brand: "Carioca",
       lastPrice: 6.0,
       buy: false,
+      description: null,
       photo: null,
     },
     {
@@ -36,6 +38,7 @@ const Main = ({ navigation }) => {
       brand: "Soya",
       lastPrice: 3.76,
       buy: false,
+      description: null,
       photo: null,
     },
   ];
