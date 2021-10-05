@@ -7,6 +7,7 @@ import {
   StyleSheet,
 } from "react-native";
 
+import { AsyncStorage } from "@react-native-async-storage/async-storage";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const Products = ({ navigation }) => {
@@ -22,10 +23,22 @@ const Products = ({ navigation }) => {
     }
   };
 
-  const onSave = () => {
+  const onSave = async () => {
     console.log(`Title: ${title} Description ${description}`);
     if (isValid()) {
       console.log("valido");
+
+      const id = 1;
+      const data = {
+        id,
+        title,
+        description,
+        photo,
+      };
+
+      console.log(JSON.stringify(data));
+
+      await AsyncStorage.setItem("products", JSON.stringify(data));
     } else {
       console.log("invalido");
     }
