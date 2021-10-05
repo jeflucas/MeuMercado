@@ -14,8 +14,21 @@ const Products = ({ navigation }) => {
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState();
 
+  const isValid = () => {
+    if (title.length >= 3) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   const onSave = () => {
     console.log(`Title: ${title} Description ${description}`);
+    if (isValid()) {
+      console.log("valido");
+    } else {
+      console.log("invalido");
+    }
   };
 
   return (
@@ -48,7 +61,12 @@ const Products = ({ navigation }) => {
             color="#fff"
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.saveButton}>
+        <TouchableOpacity
+          style={[
+            styles.saveButton,
+            isValid() ? null : styles.saveButtonInvalid,
+          ]}
+        >
           <Text style={styles.saveButtonText} onPress={onSave}>
             Cadastrar{" "}
           </Text>
@@ -105,6 +123,9 @@ const styles = StyleSheet.create({
     width: 200,
     fontSize: 16,
     fontWeight: "bold",
+  },
+  saveButtonInvalid: {
+    opacity: 0.5,
   },
   saveButtonText: {
     color: "#fff",
