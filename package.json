@@ -17,7 +17,7 @@
     "expo-updates": "~0.8.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-native": "~0.63.4",
+    "react-native": "^0.63.4",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-reanimated": "~2.2.0",
     "react-native-screens": "~3.4.0",
@@ -28,5 +28,18 @@
   "devDependencies": {
     "@babel/core": "^7.9.0"
   },
-  "private": true
+  "private": true,
+  "name": "meumercado",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeflucas/MeuMercado.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeflucas/MeuMercado/issues"
+  },
+  "homepage": "https://github.com/jeflucas/MeuMercado#readme",
+  "description": ""
 }
