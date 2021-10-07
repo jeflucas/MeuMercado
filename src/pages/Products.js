@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -10,7 +10,8 @@ import {
 import AsyncStorage from "@react-native-community/async-storage";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-const Products = ({ navigation }) => {
+const Product = ({ navigation }) => {
+  const [products, setProducts] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState();
@@ -28,7 +29,7 @@ const Products = ({ navigation }) => {
     if (isValid()) {
       console.log("valido");
 
-      const id = 1;
+      const id = Math.random(5000).toString();
       const data = {
         id,
         title,
@@ -36,9 +37,13 @@ const Products = ({ navigation }) => {
         photo,
       };
 
+      products.push(data);
+
       console.log(JSON.stringify(data));
 
       await AsyncStorage.setItem("products", JSON.stringify(data));
+
+      navigation.goBack();
     } else {
       console.log("invalido");
     }
@@ -161,4 +166,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Products;
+export default Product;

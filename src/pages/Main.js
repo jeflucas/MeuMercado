@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -7,41 +7,12 @@ import {
   StyleSheet,
 } from "react-native";
 
+import AsyncStorage from "@react-native-community/async-storage";
+
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const Main = ({ navigation }) => {
-  const data = [
-    {
-      id: "1",
-      title: "Arroz",
-      price: 12.5,
-      brand: "Tio Urbano",
-      lastPrice: 11.0,
-      buy: false,
-      description: null,
-      photo: null,
-    },
-    {
-      id: "2",
-      title: "Feijão",
-      price: 7.1,
-      brand: "Carioca",
-      lastPrice: 6.0,
-      buy: false,
-      description: null,
-      photo: null,
-    },
-    {
-      id: "3",
-      title: "Óleo",
-      price: 3.5,
-      brand: "Soya",
-      lastPrice: 3.76,
-      buy: false,
-      description: null,
-      photo: null,
-    },
-  ];
+  const [products, setProducts] = useState([]);
 
   return (
     <View style={styles.container}>
@@ -58,8 +29,8 @@ const Main = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <FlatList
-        data={data}
-        keyExtractor={(item) => item.id}
+        data={products}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <TouchableOpacity style={styles.itemButton}>
             <Text style={styles.itemText}>{item.title}</Text>
