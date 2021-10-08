@@ -12,7 +12,7 @@ import AsyncStorage from "@react-native-community/async-storage";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const Main = ({ navigation }) => {
-  const [products] = useState([]);
+  const [products, setProducts] = useState([]);
 
   return (
     <View style={styles.container}>
