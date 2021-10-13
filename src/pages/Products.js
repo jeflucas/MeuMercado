@@ -16,6 +16,18 @@ const Product = ({ navigation }) => {
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState();
 
+  useEffect(() => {
+    // Codigo de execuçao
+    // recuperar os dados do asyncstorage
+
+    AsyncStorage.getItem("products").then((data) => {
+      if (data) {
+        const product = JSON.parse(data);
+        setProducts(product);
+      }
+    });
+  }, []);
+
   const isValid = () => {
     if (title.length >= 3) {
       return true;
@@ -41,7 +53,7 @@ const Product = ({ navigation }) => {
 
       console.log(JSON.stringify(data));
 
-      await AsyncStorage.setItem("products", JSON.stringify(data));
+      await AsyncStorage.setItem("products", JSON.stringify(products));
 
       navigation.goBack();
     } else {

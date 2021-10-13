@@ -14,6 +14,13 @@ import Icon from "react-native-vector-icons/FontAwesome";
 const Main = ({ navigation }) => {
   const [products, setProducts] = useState([]);
 
+  useEffect(() => {
+    AsyncStorage.getItem("products").then((data) => {
+      const product = JSON.parse(data);
+      setProducts(product);
+    });
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.toolbox}>
